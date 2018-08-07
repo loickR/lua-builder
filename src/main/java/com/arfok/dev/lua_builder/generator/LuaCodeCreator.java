@@ -32,9 +32,7 @@ public class LuaCodeCreator {
             File luaProjectFile = projectDefiner.setAndGetLuaProject();
             try (BufferedWriter writer = Files.newBufferedWriter(luaProjectFile.toPath())) {
                 for (ILuaComponent component : luaComponents) {
-                    writer.append(component.type())
-                            .append(component.name())
-                            .append(component.value());
+                    writer.append(component.componentTemplate().template()).append("\n");
                 }
             }
         } catch (IOException e) {

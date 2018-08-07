@@ -1,6 +1,10 @@
 package com.arfok.dev.lua_builder.component.function;
 
 import com.arfok.dev.lua_builder.component.ILuaFunctionComponent;
+import com.arfok.dev.lua_builder.template.ILuaComponentTemplate;
+
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 /**
  * Defines a lua function as following :
@@ -59,6 +63,14 @@ public class LuaFunctionComponent implements ILuaFunctionComponent {
     @Override
     public String value() {
         return body;
+    }
+
+    @Override
+    public ILuaComponentTemplate componentTemplate() {
+        String parameters = Arrays.stream(parameters()).collect(Collectors.joining(", "));
+        return () -> type() + " function " + name() + "(" + parameters + ")\n"
+                + " " + value() + "\n"
+                + "end";
     }
 
     @Override

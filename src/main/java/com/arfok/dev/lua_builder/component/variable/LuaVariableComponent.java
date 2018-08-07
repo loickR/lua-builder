@@ -1,6 +1,7 @@
 package com.arfok.dev.lua_builder.component.variable;
 
 import com.arfok.dev.lua_builder.component.ILuaComponent;
+import com.arfok.dev.lua_builder.template.ILuaComponentTemplate;
 
 /**
  * Defines a new lua variable as a component :
@@ -45,5 +46,10 @@ public class LuaVariableComponent implements ILuaComponent {
     @Override
     public String value() {
         return value;
+    }
+
+    @Override
+    public ILuaComponentTemplate componentTemplate() {
+        return () -> type() + " " + name() + " = " + value();
     }
 }

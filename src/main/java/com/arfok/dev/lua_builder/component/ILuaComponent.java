@@ -1,5 +1,7 @@
 package com.arfok.dev.lua_builder.component;
 
+import com.arfok.dev.lua_builder.template.ILuaComponentTemplate;
+
 /**
  * This interface defines the properties of an lua object.
  * It is common for all new objects created, it can be associated with :
@@ -60,4 +62,11 @@ public interface ILuaComponent {
      * @return the value associated to the new component.
      */
     String value();
+
+    /**
+     * Get the lua componentTemplate for the new component created from {@link ILuaComponentTemplate}.
+     *
+     * @return the corresponding componentTemplate.
+     */
+    ILuaComponentTemplate componentTemplate();
 }
