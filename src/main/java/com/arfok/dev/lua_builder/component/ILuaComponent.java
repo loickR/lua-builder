@@ -45,4 +45,19 @@ public interface ILuaComponent {
      * @return the specific type associated.
      */
     String type();
+
+    /**
+     * The value of the new lua variable component.
+     * <code>
+     *     local a = 5
+     * </code>
+     *
+     * then "a" is the name of the component and 5 the value associated.
+     *
+     * In the case it's a function component then this property corresponds to
+     * the body of the function.
+     *
+     * @return the value associated to the new component.
+     */
+    String value();
 }
