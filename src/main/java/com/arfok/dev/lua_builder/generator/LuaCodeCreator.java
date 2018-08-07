@@ -15,28 +15,28 @@ import java.util.List;
  */
 public class LuaCodeCreator {
 
-   private final LuaProjectDefiner projectDefiner;
+    private final LuaProjectDefiner projectDefiner;
 
-   public LuaCodeCreator(LuaProjectDefiner projectDefiner) {
-      this.projectDefiner = projectDefiner;
-   }
+    public LuaCodeCreator(LuaProjectDefiner projectDefiner) {
+        this.projectDefiner = projectDefiner;
+    }
 
- /**
-  * Take a list of lua components as <code>List<{@link ILuaComponent}> </code>
-  * then write into it to the project file associated.
-  *
-  * @param luaComponents the list of lua components.
-  */
-   public void generateLuaCode(List<ILuaComponent> luaComponents) {
-       try {
-           File luaProjectFile = projectDefiner.setAndGetLuaProject();
-           try (BufferedWriter writer = Files.newBufferedWriter(luaProjectFile.toPath())) {
-               for (ILuaComponent component : luaComponents) {
-                   writer.append(component.type()).append(component.name());
-               }
-           }
-       } catch (IOException e) {
-           e.printStackTrace();
-       }
-   }
+    /**
+     * Take a list of lua components as <code>List<{@link ILuaComponent}> </code>
+     * then write into it to the project file associated.
+     *
+     * @param luaComponents the list of lua components.
+     */
+    public void generateLuaCode(List<ILuaComponent> luaComponents) {
+        try {
+            File luaProjectFile = projectDefiner.setAndGetLuaProject();
+            try (BufferedWriter writer = Files.newBufferedWriter(luaProjectFile.toPath())) {
+                for (ILuaComponent component : luaComponents) {
+                    writer.append(component.type()).append(component.name());
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
