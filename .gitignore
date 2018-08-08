@@ -5,6 +5,7 @@
 # *.[oa]
 # *~
 
+.idea
 luabuilder.iml
 .idea/compiler.xml
 .idea/encodings.xml
